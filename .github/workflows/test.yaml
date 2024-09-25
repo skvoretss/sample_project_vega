@@ -8,4 +8,32 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y cmake
       - run: mkdir build
       - run: cmake -S . -B build && cmake --build build
-      - run: ./build/tests
+      - uses: actions/upload-artifact@v4
+        with:
+          name: binaries
+          path: 
+            build/main
+            build/tests
+
+
+
+  tests:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: binaries
+      - run: chmod +x tests
+      - run: ./tests
+
+  main:
+    needs: [build, tests]
+    runs-on: ubuntu-latest
+      steps:
+        - uses: actions/download-artifact@v4
+          with:
+            name: binaries
+        - run: chmod +x main && ./main
+
+  banchmark:
