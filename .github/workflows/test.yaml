@@ -30,10 +30,8 @@ jobs:
   main:
     needs: [build, tests]
     runs-on: ubuntu-latest
-      steps:
-        - uses: actions/download-artifact@v4
-          with:
-            name: binaries
-        - run: chmod +x main && ./main
-
-  banchmark:
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: binaries
+      - run: chmod +x main && ./main
