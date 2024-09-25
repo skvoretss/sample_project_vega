@@ -12,7 +12,7 @@ FetchContent_Declare(
 FetchContent_Declare(
     googlebench
     GIT_REPOSITORY https://github.com/google/benchmark.git
-    GIT_TAG main
+    GIT_TAG main -DBUILD_TESTING=OFF
 )
 FetchContent_MakeAvailable(googletest googlebench)
 
