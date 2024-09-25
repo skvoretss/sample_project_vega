@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.22)
 project(vega)
 
 add_executable(main main.cpp my_add.cpp)
@@ -12,7 +12,7 @@ FetchContent_Declare(
 FetchContent_Declare(
     googlebench
     GIT_REPOSITORY https://github.com/google/benchmark.git
-    GIT_TAG main -DBUILD_TESTING=OFF
+    GIT_TAG main
 )
 FetchContent_MakeAvailable(googletest googlebench)
 
