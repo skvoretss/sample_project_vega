@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.16)
+set(-DBUILD_TESTING "" OFF)
 project(vega)
 
 add_executable(main main.cpp my_add.cpp)
