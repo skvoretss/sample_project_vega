@@ -8,4 +8,4 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y cmake
       - run: mkdir build
       - run: cmake -S . -B build && cmake --build build
-      - run: ./build/main 4 6
+      - run: ./build/tests
