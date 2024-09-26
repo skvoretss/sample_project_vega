@@ -12,19 +12,19 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-FetchContent_Declare(
-    googlebench
-    GIT_REPOSITORY https://github.com/google/benchmark.git
-    GIT_TAG main
-)
-FetchContent_MakeAvailable(googlebench)
-
 find_package(GTest)
 enable_testing()
 add_executable(tests test_add.cpp my_add.cpp)
 target_link_libraries(tests gtest_main)
 include(GoogleTest)
 gtest_discover_tests(tests)
+
+FetchContent_Declare(
+    googlebench
+    GIT_REPOSITORY https://github.com/google/benchmark.git
+    GIT_TAG main
+)
+FetchContent_MakeAvailable(googlebench)
 
 find_package(benchmark REQUIRED)
 add_executable(bench bench_add.cpp my_add.cpp)
