@@ -26,6 +26,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googlebench)
 
-find_package(benchmark REQUIRED)
+find_package(benchmark)
 add_executable(bench bench_add.cpp my_add.cpp)
 target_link_libraries(bench benchmark::benchmark)
