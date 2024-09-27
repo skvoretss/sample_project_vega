@@ -51,7 +51,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: sudo apt install doxygen && doxygen --version
       - run: sudo apt install graphviz
-      - run: doxygen
+      - run: doxygen -g
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
