@@ -50,7 +50,7 @@ jobs:
     needs: [build, tests]
     environment:
       name: github-pages
-      url: https://skvoretss.github.io/sample_project_vega/
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: write
       pages: write
@@ -67,8 +67,6 @@ jobs:
           doxyfile-path: ./Doxyfile
           working-directory: .
     
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -77,6 +75,8 @@ jobs:
           allow_empty_commit: false
           force_orphan: true
           publish_branch: gh-pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
