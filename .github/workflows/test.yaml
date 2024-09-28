@@ -64,7 +64,7 @@ jobs:
 
       - run: sudo apt install doxygen && doxygen --version
       - run: sudo apt install graphviz
-      - run: doxygen -g Doxyfile
+      #- run: doxygen -g Doxyfile
 
       - uses: mattnotmitt/doxygen-action@v1.1.0
         with:
