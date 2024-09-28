@@ -77,11 +77,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: my-artifact
           path: './html/'
       - name: Deploy to GitHub Pages
         id: deployment
-        - uses: geekyeggo/delete-artifact@v5
-        with:
-          name: my-artifact
         uses: actions/deploy-pages@v4
