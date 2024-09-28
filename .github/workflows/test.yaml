@@ -74,12 +74,11 @@ jobs:
           allow_empty_commit: false
           force_orphan: true
           publish_branch: gh-pages
-      
+            - uses: peaceiris/actions-gh-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './doc/html/'
-      
+          path: './html/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
