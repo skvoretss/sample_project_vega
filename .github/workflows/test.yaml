@@ -50,7 +50,7 @@ jobs:
     needs: [build, tests]
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://skvoretss.github.io/sample_project_vega/
     permissions:
       contents: write
       pages: write
