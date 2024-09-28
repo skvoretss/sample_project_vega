@@ -59,9 +59,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - run: sudo apt install doxygen && doxygen --version
       - run: sudo apt install graphviz
       - run: doxygen -g Doxyfile
+      
       - uses: mattnotmitt/doxygen-action@v1.1.0
         with:
           doxyfile-path: ./Doxyfile
@@ -75,12 +79,11 @@ jobs:
           allow_empty_commit: false
           force_orphan: true
           publish_branch: gh-pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './html/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
