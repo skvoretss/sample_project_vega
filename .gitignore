@@ -2,3 +2,5 @@ build
 googletest
 benchmark
 .vscode
+html
+latex
